@@ -34,7 +34,6 @@ async function registerUser(req, res) {
     await User.create(req.body);
     res.status(201).json({ success: true, msg: 'User successfully created.' });
     // const password = User.find(req.body.password);
-    // req.body.check("password").matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/); 
 }
 
 async function authenticateUser(req, res) {
