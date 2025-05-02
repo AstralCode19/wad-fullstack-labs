@@ -34,6 +34,11 @@ async function registerUser(req, res) {
     await User.create(req.body);
     res.status(201).json({ success: true, msg: 'User successfully created.' });
     // const password = User.find(req.body.password);
+    req.check("password").matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/); 
+    // Read about Java regex and then found people discussing different ways to authenticate a password on videos and forums online, tried to understand the different ways until I figured out a way that would work with the labs and the given regular expression.
+    // https://www.w3schools.com/java/ref_string_matches.asp
+    // https://youtu.be/Ud5xKCYQTjM?si=Hu8UEgFBdpsb-Umo
+    // https://stackoverflow.com/questions/34760548/how-to-validate-password-using-express-validator-npm
 }
 
 async function authenticateUser(req, res) {
